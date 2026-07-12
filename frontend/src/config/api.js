@@ -14,7 +14,7 @@ export const aiChatConfig = {
   apiEndpoint: 'https://api.deepseek.com/chat/completions',
   
   // API Key (由开发人员指定)
-  apiKey: 'sk-d1a11510fc5e47b4b8ce9ca2534bc1e5',
+  apiKey: 'sk-xx',
   
   // 使用的模型
   model: 'deepseek-v4-pro'
