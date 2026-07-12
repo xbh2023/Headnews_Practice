@@ -1,0 +1,10 @@
+fastapi
+redis
+types-redis
+uvicorn
+sqlalchemy>=2.0.36
+asyncmy>=0.2.9
+datetime
+aiomysql
+pydantic
+passlib
