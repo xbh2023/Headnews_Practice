@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import select, func, delete
 from sqlalchemy.ext.asyncio import AsyncSession
-
+from utils.logger import logger
 from models.history import History
 from models.news import News
 
@@ -60,12 +60,13 @@ async def delete_only_history(
         History.user_id == user_id
         )
         result = await db.execute(delete_query)
-        print(f"删除浏览记录结果: {result.rowcount}")
+        # print(f"删除浏览记录结果: {result.rowcount}")
+        logger.info(f"删除浏览记录 | 用户ID:{user_id} | 新闻ID:{news_id} | 受影响行数:{result.rowcount}")
         await db.commit()
         return result.rowcount > 0
     except Exception as e:
         await db.rollback()
-        print(f"删除浏览记录异常: {e}")
+        logger.error(f"删除浏览记录异常 | 用户ID:{user_id} | 新闻ID:{news_id} | 异常信息:{e}")
         raise e
 
 #清空浏览记录
